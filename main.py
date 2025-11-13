@@ -23,10 +23,10 @@ df = pd.DataFrame(data)
 df['Sex'] = df['Sex'].map({'male': 0, 'female': 1})
 df['Embarked'] = df['Embarked'].map({'S': 0, 'C': 1, 'Q': 2})
 
-print("✅ Titanic Dataset Created Successfully!")
+print(" Titanic Dataset Created Successfully!")
 print(df)
 
-print("\n🚀 Training Linear Regression Model to Predict Fare...")
+print("\n Training Linear Regression Model to Predict Fare...")
 
 X_reg = df[['PassengerId', 'Sex', 'Age', 'SibSp', 'Parch', 'Embarked']]
 y_reg = df['Fare']
@@ -43,11 +43,11 @@ y_pred_reg = lr_model.predict(X_test)
 mse = mean_squared_error(y_test, y_pred_reg)
 r2 = r2_score(y_test, y_pred_reg)
 
-print("\n📊 Linear Regression Evaluation")
+print("\n Linear Regression Evaluation")
 print(f"MSE: {mse:.4f}")
 print(f"R² Score: {r2:.4f}")
 
-print("\n🌳 Training Decision Tree Classifier to Predict Survival...")
+print("\n Training Decision Tree Classifier to Predict Survival...")
 
 X_clf = df[['PassengerId', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare', 'Embarked']]
 y_clf = df['Survived']
@@ -63,7 +63,7 @@ y_pred_c = dt_model.predict(X_test_c)
 
 accuracy = accuracy_score(y_test_c, y_pred_c)
 
-print("\n📊 Decision Tree Evaluation")
+print("\n Decision Tree Evaluation")
 print(f"Accuracy: {accuracy:.4f}")
 
 os.makedirs("model", exist_ok=True)
@@ -71,5 +71,6 @@ os.makedirs("model", exist_ok=True)
 joblib.dump(lr_model, "model/linear_regression_titanic.joblib")
 joblib.dump(dt_model, "model/decision_tree_titanic.joblib")
 
-print("\n💾 Models saved in /model folder!")
-print("\n✅ Mini Project 4 Completed Successfully!")
+print("\n Models saved in /model folder!")
+
+print("\n Mini Project 4 Completed Successfully!")
